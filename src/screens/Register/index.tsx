@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { TouchableOpacity, Text, View, Image } from "react-native";
+import { colors } from "../../colors";
 import { styles } from "./styles";
 import ButtonComponent from "../../components/Button/";
 import FormComponent from "../../components/Forms";

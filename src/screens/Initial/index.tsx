@@ -2,6 +2,7 @@ import React from "react";
 import { Text, View, ImageBackground } from "react-native";
 import ButtonComponent from "../../components/Button/";
 import { styles } from "./styles";
+import { colors } from "../../colors";
 
 export default function InicialPage({ navigation }: { navigation: any }) {
   return (

@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: "row",
     alignItems: "center",
-    borderColor: "#969595",
+    borderColor: "gray",
     borderBottomWidth: 1,
     width: 250,
   },
