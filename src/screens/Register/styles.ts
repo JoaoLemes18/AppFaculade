@@ -1,10 +1,11 @@
 import { StyleSheet } from "react-native";
+import { colors } from "../../colors";
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "flex-start",
-    backgroundColor: "#ffffff",
+    backgroundColor: colors.theme,
     bottom: 5,
   },
   logo: {
@@ -14,7 +15,7 @@ export const styles = StyleSheet.create({
     width: 250,
   },
   clickHereText: {
-    color: "red",
+    color: colors.Textred,
     fontWeight: "bold",
   },
   textcontent: {

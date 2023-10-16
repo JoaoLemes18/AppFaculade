@@ -51,12 +51,14 @@ export default function RegisterPage({ navigation }: { navigation: any }) {
           onChangeText={setName}
           placeholder="Digite seu nome"
         />
+
         <FormComponent
           label="Email"
           value={email}
           onChangeText={setEmail}
           placeholder="Seu email"
         />
+
         <FormComponent
           label="Senha"
           value={password}
