@@ -5,7 +5,6 @@ export const styles = StyleSheet.create({
     flex: 1,
     alignItems: "flex-start",
     backgroundColor: "#ffffff",
-    bottom: 5,
   },
   LoginHeaderText: {
     left: 30,

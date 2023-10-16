@@ -4,31 +4,31 @@ import { styles } from "./styles";
 import ButtonComponent from "../../components/Button/";
 import FormComponent from "../../components/Forms";
 import TitleComponent from "../../components/Texts/Title";
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
+
 import { auth } from "../../firebase/config";
 
-export default function RegisterPage({ navigation }: { navigation: any }) {
+export default function LoginPage({ navigation }: { navigation: any }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
-  const [selectedBloodType, setSelectedBloodType] = useState("");
 
-  async function Register() {
-    console.log("email: " + email);
-    console.log("password: " + password);
-
+  async function Login() {
     try {
-      console.log("chegou aqui");
-      const userCredential = await createUserWithEmailAndPassword(
+      const userCredential = await signInWithEmailAndPassword(
         auth,
         email,
         password
       );
       const user = userCredential.user;
-      console.log("usuario criado");
-      navigation.navigate("Login");
+      console.log("Usuário logado");
+
+      setTimeout(() => {
+        navigation.navigate("Home", { user: user.uid });
+      }, 1500);
     } catch (error) {
-      console.error("Erro no createUserWithEmailAndPassword:", error);
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log("Erro de login:");
     }
   }
 
@@ -62,7 +62,7 @@ export default function RegisterPage({ navigation }: { navigation: any }) {
 
         <View style={styles.teste}>
           <ButtonComponent
-            onPress={Register}
+            onPress={Login}
             text={"Logar"}
             backgroundColor="red"
             style={{ top: 15, marginBottom: 15 }}
