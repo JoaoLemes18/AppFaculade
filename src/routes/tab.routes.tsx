@@ -54,8 +54,8 @@ export function TabRoutes() {
           component={Login}
           options={{
             headerShown: false,
-            tabBarButton: () => null,
-            tabBarStyle: { display: "none" },
+            tabBarActiveTintColor: "#418B64",
+            tabBarInactiveTintColor: "#000",
           }}
         />
       </Tab.Navigator>
