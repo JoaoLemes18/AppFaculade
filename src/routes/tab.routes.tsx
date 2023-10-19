@@ -6,20 +6,21 @@ import Home from "../screens/Home";
 import Agenda from "../screens/Agenda";
 import Register from "../screens/Register";
 import Login from "../screens/Login";
+import { MaterialIcons } from "@expo/vector-icons";
 
 const Tab = createBottomTabNavigator();
 
 export function TabRoutes() {
   return (
     <NavigationContainer>
-      <Tab.Navigator initialRouteName="Inital">
+      <Tab.Navigator initialRouteName="Initial">
         <Tab.Screen
           name="Initial"
           component={Initial}
           options={{
             headerShown: false,
-            tabBarActiveTintColor: "#418B64",
-            tabBarInactiveTintColor: "#000",
+            tabBarButton: () => null,
+            tabBarStyle: { display: "none" },
           }}
         />
         <Tab.Screen
@@ -29,6 +30,9 @@ export function TabRoutes() {
             headerShown: false,
             tabBarActiveTintColor: "#418B64",
             tabBarInactiveTintColor: "#000",
+            tabBarIcon: ({ color, size }) => (
+              <MaterialIcons name="home" size={size} color={color} />
+            ),
           }}
         />
         <Tab.Screen
@@ -38,6 +42,9 @@ export function TabRoutes() {
             headerShown: false,
             tabBarActiveTintColor: "#418B64",
             tabBarInactiveTintColor: "#000",
+            tabBarIcon: ({ color, size }) => (
+              <MaterialIcons name="date-range" size={size} color={color} />
+            ),
           }}
         />
         <Tab.Screen
@@ -56,6 +63,9 @@ export function TabRoutes() {
             headerShown: false,
             tabBarActiveTintColor: "#418B64",
             tabBarInactiveTintColor: "#000",
+            tabBarIcon: ({ color, size }) => (
+              <MaterialIcons name="login" size={size} color={color} />
+            ),
           }}
         />
       </Tab.Navigator>

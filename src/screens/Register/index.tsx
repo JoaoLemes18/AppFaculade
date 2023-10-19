@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TouchableOpacity, Text, View, Image } from "react-native";
+import { TouchableOpacity, Text, View, Image, ScrollView } from "react-native";
 import { colors } from "../../colors";
 import { styles } from "./styles";
 import ButtonComponent from "../../components/Button/";
@@ -35,60 +35,62 @@ export default function RegisterPage({ navigation }: { navigation: any }) {
   }
 
   return (
-    <View style={styles.container}>
-      <View style={styles.HeaderBox}>
-        <Image
-          source={require("../../../assets/logo.png")}
-          style={styles.logo}
-        />
-        <TitleComponent title="Crie sua conta" />
-      </View>
+    <ScrollView style={{ backgroundColor: colors.theme }}>
+      <View style={styles.container}>
+        <View style={styles.HeaderBox}>
+          <Image
+            source={require("../../../assets/logo.png")}
+            style={styles.logo}
+          />
+          <TitleComponent title="Crie sua conta" />
+        </View>
 
-      <View style={styles.HeaderButtons}>
-        <FormComponent
-          label="Nome"
-          value={name}
-          onChangeText={setName}
-          placeholder="Digite seu nome"
-        />
-
-        <FormComponent
-          label="Email"
-          value={email}
-          onChangeText={setEmail}
-          placeholder="Seu email"
-        />
-
-        <FormComponent
-          label="Senha"
-          value={password}
-          onChangeText={setPassword}
-          placeholder="Sua senha"
-          isPassword={true}
-        />
-
-        <BloodTypeComponent
-          selectedType={selectedBloodType}
-          onSelect={(type) => setSelectedBloodType(type)}
-        />
-        <View style={styles.teste}>
-          <ButtonComponent
-            onPress={Register}
-            text={"Cadastrar"}
-            backgroundColor="red"
+        <View style={styles.HeaderButtons}>
+          <FormComponent
+            label="Nome"
+            value={name}
+            onChangeText={setName}
+            placeholder="Digite seu nome"
           />
 
-          <TouchableOpacity onPress={() => navigation.navigate("Login")}>
-            <Text>
-              Você já tem uma conta?
-              <Text style={styles.clickHereText}> Clique aqui</Text>
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate("Initial")}>
-            <Text>Volte para a tela inicial</Text>
-          </TouchableOpacity>
+          <FormComponent
+            label="Email"
+            value={email}
+            onChangeText={setEmail}
+            placeholder="Seu email"
+          />
+
+          <FormComponent
+            label="Senha"
+            value={password}
+            onChangeText={setPassword}
+            placeholder="Sua senha"
+            isPassword={true}
+          />
+
+          <BloodTypeComponent
+            selectedType={selectedBloodType}
+            onSelect={(type) => setSelectedBloodType(type)}
+          />
+          <View style={styles.teste}>
+            <ButtonComponent
+              onPress={Register}
+              text={"Cadastrar"}
+              backgroundColor="red"
+            />
+
+            <TouchableOpacity onPress={() => navigation.navigate("Login")}>
+              <Text>
+                Você já tem uma conta?
+                <Text style={styles.clickHereText}> Clique aqui</Text>
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate("Initial")}>
+              <Text>Volte para a tela inicial</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 }
