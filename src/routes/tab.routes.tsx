@@ -1,12 +1,14 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { MaterialIcons } from "@expo/vector-icons";
+import { colors } from "../colors";
 import { NavigationContainer } from "@react-navigation/native";
 import Initial from "../screens/Initial";
 import Home from "../screens/Home";
 import Agenda from "../screens/Agenda";
 import Register from "../screens/Register";
 import Login from "../screens/Login";
-import { MaterialIcons } from "@expo/vector-icons";
+import MinhaConta from "../screens/UserProfile";
 
 const Tab = createBottomTabNavigator();
 
@@ -28,7 +30,7 @@ export function TabRoutes() {
           component={Home}
           options={{
             headerShown: false,
-            tabBarActiveTintColor: "#418B64",
+            tabBarActiveTintColor: colors.ColorRed,
             tabBarInactiveTintColor: "#000",
             tabBarIcon: ({ color, size }) => (
               <MaterialIcons name="home" size={size} color={color} />
@@ -40,7 +42,7 @@ export function TabRoutes() {
           component={Agenda}
           options={{
             headerShown: false,
-            tabBarActiveTintColor: "#418B64",
+            tabBarActiveTintColor: colors.ColorRed,
             tabBarInactiveTintColor: "#000",
             tabBarIcon: ({ color, size }) => (
               <MaterialIcons name="date-range" size={size} color={color} />
@@ -61,10 +63,22 @@ export function TabRoutes() {
           component={Login}
           options={{
             headerShown: false,
-            tabBarActiveTintColor: "#418B64",
+            tabBarActiveTintColor: colors.ColorRed,
             tabBarInactiveTintColor: "#000",
             tabBarIcon: ({ color, size }) => (
               <MaterialIcons name="login" size={size} color={color} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Minha Conta"
+          component={MinhaConta}
+          options={{
+            headerShown: false,
+            tabBarActiveTintColor: colors.ColorRed,
+            tabBarInactiveTintColor: "#000",
+            tabBarIcon: ({ color, size }) => (
+              <MaterialIcons name="person-outline" size={size} color={color} />
             ),
           }}
         />
